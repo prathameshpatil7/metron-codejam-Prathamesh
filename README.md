@@ -13,7 +13,35 @@ This is a Python application that monitors a local directory for file changes an
 
 To run this application, you need:
 
-- **Docker**: Ensure Docker and Docker Compose are installed on your machine. You can install Docker from [here](https://docs.docker.com/get-docker/).
+- **Docker**: Ensure Docker and Docker Compose are installed on your machine. You can install Docker like:
+## Step 1: Update System Packages
+
+Update your package lists to make sure you are getting the latest version and dependencies.
+
+```bash
+sudo apt update
+```
+
+
+## Step 2: Install Docker
+
+```bash
+sudo apt install -y docker.io
+sudo apt install -y docker-compose
+```
+
+Start and enable Docker.
+
+```bash
+sudo systemctl enable --now docker
+```
+
+Add current user to docker group (To use docker without root)
+
+```bash
+sudo usermod -aG docker $USER && newgrp docker
+```
+
 - **Elasticsearch**: You need access to an Elasticsearch instance. You can use a hosted Elasticsearch service or run it locally. 
 
 ## Setup
@@ -23,13 +51,13 @@ To run this application, you need:
 First, clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/file-monitor.git
-cd file-monitor
+https://github.com/prathameshpatil7/metron-codejam-Prathamesh
+cd metron-codejam-Prathamesh
 ```
 
 ### 2. Install Dependencies
 
-Ensure Docker and Docker Compose are installed on your system. If not, follow the instructions for installation on the Docker website.
+Ensure Docker and Docker Compose are installed on your system. If not, follow the installation instructions on the Docker website.
 
 ### 3. Configuration
 
