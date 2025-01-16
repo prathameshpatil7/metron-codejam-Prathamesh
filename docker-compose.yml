@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  file-monitor:
+    build: .
+    container_name: file-monitor
+    environment:
+      - ELASTICSEARCH_HOST=${ELASTICSEARCH_HOST}
+      - ELASTICSEARCH_API_KEY=${ELASTICSEARCH_API_KEY}
+      - ELASTICSEARCH_INDEX=${ELASTICSEARCH_INDEX}
+      - DOWNLOADS_FOLDER=${DOWNLOADS_FOLDER}  # User-provided path to Downloads folder
+      - MONITORED_EXTENSIONS=${MONITORED_EXTENSIONS}  # Add your desired extensions here
+    volumes:
+      - ${DOWNLOADS_FOLDER}:${DOWNLOADS_FOLDER}  # Mount the specified Downloads folder to the container
+    restart: always
